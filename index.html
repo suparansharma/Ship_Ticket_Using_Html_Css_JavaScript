@@ -71,11 +71,14 @@
             
             <div class="input-group f-class">
                 <div>
-                    <label for="">Economy ($100)</label>
-                    <input class="inp-style inp-width" type="number" name="">
+                    <label for="">Economy ($<span id="economy-ticket-price" >100</span>)</label>
+                    <input class="inp-style inp-width" id="economy-ticket-count" type="number" name=""  value="0">
                 </div>
                 <div class="plus-minus-btn">
-                    <p> <span>+</span> <span>-</span> </p>
+                    <p>
+                        <button class="plus-minus-btn"id="economy-ticket-increase"><i class="fa fa-plus"></i></button>
+                        <button class="plus-minus-btn"id="economy-ticket-decrease"><i class="fa fa-minus"></i></button>
+                    </p>
                 </div>
             </div>
             <div class="calculations">
@@ -125,7 +128,7 @@
         firstClassTicketPrice = firstClassTicketNewCount * 150;
         document.getElementById('firstClass-ticket-price').innerText=firstClassTicketPrice;
         
-        //console.log(firstClassTicketNewCount);
+       
 
     })
 
@@ -139,6 +142,18 @@ document.getElementById('firstClass-ticket-decrease').addEventListener('click',f
     document.getElementById('firstClass-ticket-price').innerText = firstClassTicketPrice;
 
 
+})
+
+
+document.getElementById('economy-ticket-increase').addEventListener('click',function(){
+
+    const economyTicketInput = document.getElementById('economy-ticket-count');
+    const economyTicketCount = parseInt(economyTicketInput.value);
+    let economyTicketNewCount = economyTicketCount + 1;
+    economyTicketInput.value = economyTicketNewCount;
+    const economyTicketPrice = economyTicketNewCount * 100;
+    document.getElementById('economy-ticket-price').innerText = economyTicketPrice;
+    
 })
 
     
