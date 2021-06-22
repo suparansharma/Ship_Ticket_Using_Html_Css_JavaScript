@@ -128,6 +128,17 @@
         //console.log(firstClassTicketNewCount);
 
     })
+
+document.getElementById('firstClass-ticket-decrease').addEventListener('click',function(){
+
+    const firstClassTicketInput = document.getElementById('firstClass-ticket-count');
+    const firstClassTicketCount = parseInt(firstClassTicketInput.value);
+    let firstClassTicketNewCount = firstClassTicketCount - 1;
+    firstClassTicketInput.value = firstClassTicketNewCount;
+
+})
+
+    
 </script>
 
 </html>
