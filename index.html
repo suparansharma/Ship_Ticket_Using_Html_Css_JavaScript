@@ -135,6 +135,9 @@ document.getElementById('firstClass-ticket-decrease').addEventListener('click',f
     const firstClassTicketCount = parseInt(firstClassTicketInput.value);
     let firstClassTicketNewCount = firstClassTicketCount - 1;
     firstClassTicketInput.value = firstClassTicketNewCount;
+    const firstClassTicketPrice = firstClassTicketNewCount * 150;
+    document.getElementById('firstClass-ticket-price').innerText = firstClassTicketPrice;
+
 
 })
 
