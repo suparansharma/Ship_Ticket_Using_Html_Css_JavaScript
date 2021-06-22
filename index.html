@@ -93,7 +93,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$500</p>
+                        <p>$ <span id="subTotalPrice">500</span> </p>
                     </div>
                 </div>
 
@@ -154,60 +154,24 @@
         }
 
         document.getElementById(ticket +'-ticket-price').innerText = TicketPrice;
+        calculation();
 
 
     }
 
 
 
+    function calculation(){
 
+        const firstClassTicketInput = document.getElementById('firstClass-ticket-count');
+        const firstClassTicketCount = parseInt(firstClassTicketInput.value);
 
+        const economyTicketInput = document.getElementById('economy-ticket-count');
+        const economyTicketCount = parseInt(economyTicketInput.value);
 
-
-
-
-    // function handleFirstClassTicketChange(isIncrease) {
-
-    //     const firstClassTicketInput = document.getElementById('firstClass-ticket-count');
-    //     const firstClassTicketCount = parseInt(firstClassTicketInput.value);
-    //     if (isIncrease == true) {
-
-    //         firstClassTicketNewCount = firstClassTicketCount + 1;
-    //     }
-
-    //     if (isIncrease == false && firstClassTicketCount > 0) {
-
-    //         firstClassTicketNewCount = firstClassTicketCount - 1;
-    //     }
-
-    //     firstClassTicketInput.value = firstClassTicketNewCount;
-    //     firstClassTicketPrice = firstClassTicketNewCount * 150;
-    //     document.getElementById('firstClass-ticket-price').innerText = firstClassTicketPrice;
-
-
-    // }
-
-
-    // function handleEconomyTicketChange(isIncrease) {
-
-    //     const economyTicketInput = document.getElementById('economy-ticket-count');
-    //     const economyTicketCount = parseInt(economyTicketInput.value);
-    //     if (isIncrease == true) {
-
-    //         economyTicketNewCount = economyTicketCount + 1;
-    //     }
-
-    //     if (isIncrease == false && economyTicketCount > 0) {
-
-    //         economyTicketNewCount = economyTicketCount - 1;
-    //     }
-
-    //     economyTicketInput.value = economyTicketNewCount;
-    //     economyTicketPrice = economyTicketNewCount * 150;
-    //     document.getElementById('economy-ticket-price').innerText = economyTicketPrice;
-
-
-    // }
+        const ticketSubTotalPrice = firstClassTicketCount * 150 + economyTicketCount * 100;
+        document.getElementById('subTotalPrice').innerText= ticketSubTotalPrice;
+    }
 
 
 
