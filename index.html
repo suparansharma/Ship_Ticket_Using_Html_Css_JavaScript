@@ -65,10 +65,10 @@
                 </div>
                 <div class="plus-minus-btn">
                     <p>
-                        <button onclick=" handleFirstClassTicketChange(true);" class="plus-minus-btn" id="firstClass-ticket-increase"><i
-                                class="fa fa-plus"></i></button>
-                        <button onclick=" handleFirstClassTicketChange(false);" class="plus-minus-btn" id="firstClass-ticket-decrease"><i
-                                class="fa fa-minus"></i></button>
+                        <button onclick=" handleTicketChange(true,'firstClass');" class="plus-minus-btn"
+                            id="firstClass-ticket-increase"><i class="fa fa-plus"></i></button>
+                        <button onclick=" handleTicketChange(false,'firstClass');" class="plus-minus-btn"
+                            id="firstClass-ticket-decrease"><i class="fa fa-minus"></i></button>
                     </p>
                 </div>
             </div>
@@ -80,8 +80,10 @@
                 </div>
                 <div class="plus-minus-btn">
                     <p>
-                        <button onclick=" handleEconomyTicketChange(true);" class="plus-minus-btn" id="economy-ticket-increase"><i class="fa fa-plus"></i></button>
-                        <button onclick=" handleEconomyTicketChange(false);" class="plus-minus-btn" id="economy-ticket-decrease"><i class="fa fa-minus"></i></button>
+                        <button onclick=" handleTicketChange(true,'economy');" class="plus-minus-btn"
+                            id="economy-ticket-increase"><i class="fa fa-plus"></i></button>
+                        <button onclick=" handleTicketChange(false,'economy');" class="plus-minus-btn"
+                            id="economy-ticket-decrease"><i class="fa fa-minus"></i></button>
                     </p>
                 </div>
             </div>
@@ -123,50 +125,89 @@
 
 <script>
 
-  
 
-    function handleFirstClassTicketChange(isIncrease) {
+    function handleTicketChange(isIncrease, ticket) {
 
-        const firstClassTicketInput = document.getElementById('firstClass-ticket-count');
-        const firstClassTicketCount = parseInt(firstClassTicketInput.value);
+        const TicketInput = document.getElementById(ticket + '-ticket-count');
+        const TicketCount = parseInt(TicketInput.value);
+        let TicketNewCount = TicketCount
         if (isIncrease == true) {
 
-            firstClassTicketNewCount = firstClassTicketCount + 1;
+            TicketNewCount = TicketCount + 1;
         }
 
-        if (isIncrease == false && firstClassTicketCount > 0) {
+        if (isIncrease == false && TicketCount > 0) {
 
-            firstClassTicketNewCount = firstClassTicketCount - 1;
+            TicketNewCount = TicketCount - 1;
+        }
+        TicketInput.value = TicketNewCount;
+        let TicketPrice = 0;
+
+        if (ticket == 'firstClass') {
+
+            TicketPrice = TicketNewCount * 150;
         }
 
-        firstClassTicketInput.value = firstClassTicketNewCount;
-        firstClassTicketPrice = firstClassTicketNewCount * 150;
-        document.getElementById('firstClass-ticket-price').innerText = firstClassTicketPrice;
+        if (ticket == 'economy') {
+
+            TicketPrice = TicketNewCount * 100;
+        }
+
+        document.getElementById(ticket +'-ticket-price').innerText = TicketPrice;
 
 
     }
 
 
-    function handleEconomyTicketChange(isIncrease) {
-
-        const economyTicketInput = document.getElementById('economy-ticket-count');
-        const economyTicketCount = parseInt(economyTicketInput.value);
-        if (isIncrease == true) {
-
-            economyTicketNewCount = economyTicketCount + 1;
-        }
-
-        if (isIncrease == false && economyTicketCount > 0) {
-
-            economyTicketNewCount = economyTicketCount - 1;
-        }
-
-        economyTicketInput.value = economyTicketNewCount;
-        economyTicketPrice = economyTicketNewCount * 150;
-        document.getElementById('economy-ticket-price').innerText = economyTicketPrice;
 
 
-    }
+
+
+
+
+
+    // function handleFirstClassTicketChange(isIncrease) {
+
+    //     const firstClassTicketInput = document.getElementById('firstClass-ticket-count');
+    //     const firstClassTicketCount = parseInt(firstClassTicketInput.value);
+    //     if (isIncrease == true) {
+
+    //         firstClassTicketNewCount = firstClassTicketCount + 1;
+    //     }
+
+    //     if (isIncrease == false && firstClassTicketCount > 0) {
+
+    //         firstClassTicketNewCount = firstClassTicketCount - 1;
+    //     }
+
+    //     firstClassTicketInput.value = firstClassTicketNewCount;
+    //     firstClassTicketPrice = firstClassTicketNewCount * 150;
+    //     document.getElementById('firstClass-ticket-price').innerText = firstClassTicketPrice;
+
+
+    // }
+
+
+    // function handleEconomyTicketChange(isIncrease) {
+
+    //     const economyTicketInput = document.getElementById('economy-ticket-count');
+    //     const economyTicketCount = parseInt(economyTicketInput.value);
+    //     if (isIncrease == true) {
+
+    //         economyTicketNewCount = economyTicketCount + 1;
+    //     }
+
+    //     if (isIncrease == false && economyTicketCount > 0) {
+
+    //         economyTicketNewCount = economyTicketCount - 1;
+    //     }
+
+    //     economyTicketInput.value = economyTicketNewCount;
+    //     economyTicketPrice = economyTicketNewCount * 150;
+    //     document.getElementById('economy-ticket-price').innerText = economyTicketPrice;
+
+
+    // }
 
 
 
