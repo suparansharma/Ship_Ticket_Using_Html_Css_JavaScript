@@ -148,11 +148,11 @@
             firstClassTicketNewCount = firstClassTicketCount + 1;
         }
 
-        if (isIncrease == false && firstClassTicketCount >0) {
+        if (isIncrease == false && firstClassTicketCount > 0) {
 
             firstClassTicketNewCount = firstClassTicketCount - 1;
         }
-        //let firstClassTicketNewCount = firstClassTicketCount + 1;
+
         firstClassTicketInput.value = firstClassTicketNewCount;
         firstClassTicketPrice = firstClassTicketNewCount * 150;
         document.getElementById('firstClass-ticket-price').innerText = firstClassTicketPrice;
@@ -163,24 +163,38 @@
 
     document.getElementById('economy-ticket-increase').addEventListener('click', function () {
 
-        const economyTicketInput = document.getElementById('economy-ticket-count');
-        const economyTicketCount = parseInt(economyTicketInput.value);
-        let economyTicketNewCount = economyTicketCount + 1;
-        economyTicketInput.value = economyTicketNewCount;
-        const economyTicketPrice = economyTicketNewCount * 100;
-        document.getElementById('economy-ticket-price').innerText = economyTicketPrice;
+        handleEconomyTicketChange(true);
 
     })
 
     document.getElementById('economy-ticket-decrease').addEventListener('click', function () {
 
+        handleEconomyTicketChange(false);
+    })
+
+
+
+    function handleEconomyTicketChange(isIncrease) {
+
         const economyTicketInput = document.getElementById('economy-ticket-count');
         const economyTicketCount = parseInt(economyTicketInput.value);
-        let economyTicketNewCount = economyTicketCount - 1;
+        if (isIncrease == true) {
+
+            economyTicketNewCount = economyTicketCount + 1;
+        }
+
+        if (isIncrease == false && economyTicketCount > 0) {
+
+            economyTicketNewCount = economyTicketCount - 1;
+        }
+
         economyTicketInput.value = economyTicketNewCount;
-        const economyTicketPrice = economyTicketNewCount * 100;
+        economyTicketPrice = economyTicketNewCount * 150;
         document.getElementById('economy-ticket-price').innerText = economyTicketPrice;
-    })
+
+
+    }
+
 
 
 </script>
