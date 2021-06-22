@@ -80,8 +80,8 @@
                 </div>
                 <div class="plus-minus-btn">
                     <p>
-                        <button class="plus-minus-btn" id="economy-ticket-increase"><i class="fa fa-plus"></i></button>
-                        <button class="plus-minus-btn" id="economy-ticket-decrease"><i class="fa fa-minus"></i></button>
+                        <button onclick=" handleEconomyTicketChange(true);" class="plus-minus-btn" id="economy-ticket-increase"><i class="fa fa-plus"></i></button>
+                        <button onclick=" handleEconomyTicketChange(false);" class="plus-minus-btn" id="economy-ticket-decrease"><i class="fa fa-minus"></i></button>
                     </p>
                 </div>
             </div>
@@ -123,21 +123,7 @@
 
 <script>
 
-    // document.getElementById('firstClass-ticket-increase').addEventListener('click', function () {
-
-    //     handleFirstClassTicketChange(true);
-
-
-    // })
-
-    // document.getElementById('firstClass-ticket-decrease').addEventListener('click', function () {
-
-    //     handleFirstClassTicketChange(false);
-
-
-    // })
-
-
+  
 
     function handleFirstClassTicketChange(isIncrease) {
 
@@ -159,19 +145,6 @@
 
 
     }
-
-
-    document.getElementById('economy-ticket-increase').addEventListener('click', function () {
-
-        handleEconomyTicketChange(true);
-
-    })
-
-    document.getElementById('economy-ticket-decrease').addEventListener('click', function () {
-
-        handleEconomyTicketChange(false);
-    })
-
 
 
     function handleEconomyTicketChange(isIncrease) {
