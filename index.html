@@ -156,6 +156,16 @@ document.getElementById('economy-ticket-increase').addEventListener('click',func
     
 })
 
+document.getElementById('economy-ticket-decrease').addEventListener('click',function(){
+
+    const economyTicketInput = document.getElementById('economy-ticket-count');
+    const economyTicketCount = parseInt(economyTicketInput.value);
+    let economyTicketNewCount = economyTicketCount - 1;
+    economyTicketInput.value = economyTicketNewCount;
+    const economyTicketPrice = economyTicketNewCount * 100;
+    document.getElementById('economy-ticket-price').innerText= economyTicketPrice;
+})
+
     
 </script>
 
