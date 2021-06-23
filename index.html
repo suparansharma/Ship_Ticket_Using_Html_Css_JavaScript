@@ -38,24 +38,24 @@
         </div>
 
 
-        <div class="booking-form">
+        <div class="booking-form" id="form-area">
             <h3>Book Ocean Time</h3>
             <div class="input-group">
                 <label for="">Flying From</label>
-                <input class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
+                <input id="flying-from" class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
             </div>
             <div class="input-group">
                 <label for="">Flying To</label>
-                <input class="inp-style" type="text" name="" placeholder="New York, United States">
+                <input id="flying-to" class="inp-style" type="text" name="" placeholder="New York, United States">
             </div>
             <div class="inputs">
                 <div class="input-group">
                     <label" for="">Departure</label>
-                        <input class="inp-style" type="date" name="">
+                        <input id="flying-departure" class="inp-style" type="date" name="">
                 </div>
                 <div class="input-group">
                     <label for="">Return</label>
-                    <input class="inp-style" type="date" name="">
+                    <input id="flying-return" class="inp-style" type="date" name="">
                 </div>
             </div>
             <div class="input-group f-class">
@@ -111,11 +111,36 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$ <span id="total" >0</span></p>
+                        <p>$ <span id="total">0</span></p>
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button id="boot-button" class="btn-style">Book Now</button>
+
+
+
+        </div>
+
+
+
+        <div id="bill-area">
+            <h1 style="text-align: center;">Congratulation</h1>
+
+            <div class="submit-area">
+
+                Flying From: <b id="booked-from"></b><br>
+                Flying To: <b id="booked-to"></b><br>
+                Departure: <b id="booked-departure"></b><br>
+                Return :<b id="booked-return"></b><br>
+                <!-- Subtotal:<span id="booked-sub-total-price"></span></div> -->
+                Subtotal: <b id="booked-sub-total-price"></b><br>
+                Tax: <b id="booked-tax"></b><br>
+                Total: <b id="booked-total"></b><br>
+                <h3 style="text-align: center;"> Download your Ticket</h3><br><br><br>
+                <button style="text-align: center;" id="boot-button" class="btn-style">Download</button>
+
+
+            </div>
         </div>
     </main>
 
@@ -153,7 +178,7 @@
             TicketPrice = TicketNewCount * 100;
         }
 
-        document.getElementById(ticket +'-ticket-price').innerText = TicketPrice;
+        document.getElementById(ticket + '-ticket-price').innerText = TicketPrice;
         calculation();
 
 
@@ -161,23 +186,23 @@
 
 
 
-    function calculation(){
+    function calculation() {
 
         const firstClassTicketCount = getInput('firstClass');
         const economyTicketCount = getInput('economy');;
-        
+
 
         const ticketSubTotalPrice = firstClassTicketCount * 150 + economyTicketCount * 100;
-        document.getElementById('subTotalPrice').innerText= ticketSubTotalPrice;
+        document.getElementById('subTotalPrice').innerText = ticketSubTotalPrice;
 
         const ticketTaxPrice = ticketSubTotalPrice * 0.1;
-        document.getElementById('tax').innerText= ticketTaxPrice;
+        document.getElementById('tax').innerText = ticketTaxPrice;
 
         const ticketTotalPrice = ticketSubTotalPrice + ticketTaxPrice;
-        document.getElementById('total').innerText= ticketTotalPrice;
+        document.getElementById('total').innerText = ticketTotalPrice;
     }
 
-    function getInput(ticket){
+    function getInput(ticket) {
 
         const TicketInput = document.getElementById(ticket + '-ticket-count');
         const TicketCount = parseInt(TicketInput.value);
@@ -186,6 +211,68 @@
 
 
     }
+
+
+    document.getElementById('boot-button').addEventListener('click', function () {
+
+        const fromArea = document.getElementById("form-area");
+
+
+        const transactionArea = document.getElementById("bill-area");
+
+
+
+
+
+
+        let FlyingFrom = document.getElementById('flying-from').value;
+        let flyingTo = document.getElementById('flying-to').value;
+        let flyingDeparture = document.getElementById('flying-departure').value;
+        let flyingReturn = document.getElementById('flying-return').value;
+
+        if (FlyingFrom == "") {
+
+            alert("Enter your Flying From Location");
+        }
+        else if (flyingTo == "") {
+            alert("Enter your Flying TO Location");
+        }
+
+        else if (flyingDeparture == "") {
+            alert("Enter your Flying Departure");
+        }
+
+        else if (flyingReturn == "") {
+            alert("Enter your Flying Return");
+        }
+
+        else {
+
+            fromArea.style.display = "none";
+            transactionArea.style.display = "block";
+
+            document.getElementById('booked-from').innerHTML = FlyingFrom;
+            document.getElementById('booked-to').innerHTML = flyingTo;
+            document.getElementById('booked-departure').innerHTML = flyingDeparture;
+            document.getElementById('booked-return').innerHTML = flyingReturn;
+            document.getElementById("booked-sub-total-price").innerHTML = document.getElementById("subTotalPrice").innerText;
+            document.getElementById("booked-tax").innerHTML = document.getElementById("tax").innerText;
+            document.getElementById("booked-total").innerHTML = document.getElementById("total").innerText;
+            
+            
+           
+
+
+
+        }
+
+
+
+
+
+
+
+    })
 
 
 

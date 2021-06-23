@@ -123,3 +123,18 @@ nav ul li a:hover, a.active{
     display: flex;
     justify-content: space-between;
 }
+
+.submit-area{
+
+    margin-top: 50px;
+    
+    border-radius: 10px;
+   
+    
+}
+
+#bill-area{
+    display: none;
+    background-color: white;
+    
+}
